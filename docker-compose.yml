@@ -28,14 +28,17 @@ services:
       retries: 3
 
   minio:
-    image: quay.io/minio/minio:latest
+    # Official MinIO images (quay.io/minio/minio, minio/minio) were pulled and now
+    # require registry auth — anonymous pulls fail with "unauthorized". Use the
+    # pinned community snapshot from the Bitnami legacy mirror (anonymous pull OK).
+    image: bitnamilegacy/minio:2025.4.22
     container_name: training-minio
-    command: server /data --console-address ":9001"
+    command: server /bitnami/minio/data --console-address ":9001"
     ports:
       - "127.0.0.1:9000:9000"
       - "127.0.0.1:9001:9001"
     volumes:
-      - minio:/data
+      - minio:/bitnami/minio/data
     environment:
       MINIO_ROOT_USER: ${MINIO_ROOT_USER:-admin}
       MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD:?MINIO_ROOT_PASSWORD must be set}
