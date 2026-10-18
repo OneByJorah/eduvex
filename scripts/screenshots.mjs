@@ -15,9 +15,11 @@ const BASE = process.env.BASE_URL || "http://127.0.0.1:8080";
 const OUT = process.env.OUT_DIR || "docs/screenshots";
 const RECORD = process.env.RECORD === "1";
 
-// Edit this list per project: one entry per screen worth showing.
+// The app is a FastAPI service: "/" returns JSON and "/docs" renders the
+// Swagger UI — that is the real UI this stack exposes.
 const PAGES = [
-  { name: "dashboard", path: "/", waitFor: "#app-ready" },
+  { name: "api-overview", path: "/" },
+  { name: "api-docs", path: "/docs", waitFor: ".information-container" },
 ];
 
 const FORBIDDEN = [
