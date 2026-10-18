@@ -54,7 +54,13 @@ jobs:
         env:
           COMPOSE_FILE_PATH: ${{ inputs.compose-file }}
         run: |
-          if [ -f "$COMPOSE_FILE_PATH" ]; then docker compose -f "$COMPOSE_FILE_PATH" config -q; else echo "No compose file, skipping"; fi
+          if [ -f "$COMPOSE_FILE_PATH" ]; then
+            compose_args=(-f "$COMPOSE_FILE_PATH")
+            if [ -f .env.example ]; then compose_args+=(--env-file .env.example); fi
+            docker compose "${compose_args[@]}" config -q
+          else
+            echo "No compose file, skipping"
+          fi
 
       - name: Project tests
         if: inputs.test-command != ''

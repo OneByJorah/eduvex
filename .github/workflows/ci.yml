@@ -3,17 +3,15 @@ run-name: "${{ github.workflow }} by @${{ github.actor }}"
 
 on:
   push:
-    branches: ["main"]
+    branches: ["main", "master"]
   pull_request:
-    branches: ["main"]
+    branches: ["main", "master"]
+
+permissions:
+  contents: read
 
 jobs:
-  compose_lint_and_smoke_test:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Lint Docker Compose file
-        run: |
-          docker compose --profile all config > /dev/null
+  ci:
+    uses: ./.github/workflows/reusable-ci.yml
+    with:
+      compose-file: docker-compose.yml
