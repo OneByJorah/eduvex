@@ -67,7 +67,8 @@ jobs:
             elif [ -f "$COMPOSE_DIR/compose.env.example" ]; then cp "$COMPOSE_DIR/compose.env.example" "$COMPOSE_DIR/.env";
             else : > "$COMPOSE_DIR/.env"; fi
           fi
-          docker compose -f "$COMPOSE_FILE_PATH" up -d --build
+          docker compose -f "$COMPOSE_FILE_PATH" up -d --build \
+            || { docker compose -f "$COMPOSE_FILE_PATH" logs --tail=100; exit 1; }
 
       - name: Wait for health
         run: |
