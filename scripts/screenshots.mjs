@@ -15,11 +15,12 @@ const BASE = process.env.BASE_URL || "http://127.0.0.1:8080";
 const OUT = process.env.OUT_DIR || "docs/screenshots";
 const RECORD = process.env.RECORD === "1";
 
-// The app is a FastAPI service: "/" returns JSON and "/docs" renders the
-// Swagger UI — that is the real UI this stack exposes.
+// The app is a FastAPI service with a strict CSP (script-src 'self'), so the
+// Swagger UI on /docs cannot load its CDN scripts. Capture the pages that
+// always render: the API overview and the OpenAPI contract.
 const PAGES = [
   { name: "api-overview", path: "/" },
-  { name: "api-docs", path: "/docs", waitFor: ".information-container" },
+  { name: "api-spec", path: "/openapi.json" },
 ];
 
 const FORBIDDEN = [
