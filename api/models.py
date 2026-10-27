@@ -1,4 +1,4 @@
-"""SQLAlchemy ORM models for LearnForge."""
+"""SQLAlchemy ORM models for eduvex."""
 
 import os
 from sqlalchemy import Column, Integer, String, Text, Float, create_engine

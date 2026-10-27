@@ -1,6 +1,6 @@
 # INTENT.md — J1-PIPELINE Phase -1 (ORACLE)
 
-**Repository:** `OneByJorah/LearnForge`
+**Repository:** `OneByJorah/eduvex`
 **Analysis Date:** 2026-07-05
 **Analyst:** J1-PIPELINE ORACLE (read-only)
 **Status:** Intent Reconstructed
@@ -9,7 +9,7 @@
 
 ## What This System Does
 
-**LearnForge** (formerly IT Training System) is a self-hosted IT training management platform. It provides structured learning paths, automated AI-generated quizzes, progress tracking, and video ingestion — all running locally via Docker Compose with no external SaaS dependencies.
+**eduvex** (formerly IT Training System) is a self-hosted IT training management platform. It provides structured learning paths, automated AI-generated quizzes, progress tracking, and video ingestion — all running locally via Docker Compose with no external SaaS dependencies.
 
 ### Service Table
 
@@ -59,7 +59,7 @@ The repo was built as part of the **JorahOne LLC** ecosystem, where Hermes Agent
 ```
 JorahOne / OneByJorah Ecosystem
 ├── Hermes Agent OS              — AI agent orchestration platform
-├── LearnForge                   — Training management (this repo)
+├── eduvex                   — Training management (this repo)
 │   ├── Hermes Skills (6)        — Workflow automation for training pipeline
 │   ├── FastAPI Backend          — REST API
 │   ├── Ollama                   — Local LLM inference
@@ -115,7 +115,7 @@ Evidence:
 ## Repository Structure
 
 ```
-LearnForge/
+eduvex/
 ├── api/                          # FastAPI backend
 │   ├── app.py                    # App entry point (v0.2.0)
 │   ├── Dockerfile                # Python 3.11-slim container
@@ -173,4 +173,4 @@ LearnForge/
 - **Default SQLite** — The schema uses SQLite syntax (`INTEGER PRIMARY KEY AUTOINCREMENT`). Switching to Postgres would require schema changes.
 - **Git history** — 14 commits. Initial commit created the skeleton. Subsequent commits added routes, skills, docs, and README polish. Recent commits include dependency bumps and a security audit (email sanitization). No branches other than `master`.
 - **No test framework** — Only a shell script smoke test (`scripts/test_api.sh`). No pytest, no unit tests, no integration tests.
-- **Repo renamed to LearnForge** — Formerly `it-training-system`. All references updated.
+- **Repo renamed to eduvex** — Formerly `it-training-system`. All references updated.

@@ -1,4 +1,4 @@
-# LearnForge — Production Setup
+# eduvex — Production Setup
 
 ## 1. Prereqs on Ubuntu
 
@@ -12,8 +12,8 @@ sudo snap install docker
 ## 2. Clone repo
 
 ```bash
-git clone https://github.com/OneByJorah/LearnForge.git
-cd LearnForge
+git clone https://github.com/OneByJorah/eduvex.git
+cd eduvex
 cp compose.env.example .env
 ```
 
