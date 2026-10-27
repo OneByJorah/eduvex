@@ -64,6 +64,7 @@ services:
       TELEGRAM_ADMIN_CHAT_ID: ${TELEGRAM_ADMIN_CHAT_ID}
     volumes:
       - ./api:/app
+      - data:/app/data
       - uploads:/uploads
     restart: unless-stopped
     depends_on:
@@ -84,3 +85,4 @@ volumes:
   qdrant:
   minio:
   uploads:
+  data:

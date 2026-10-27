@@ -11,7 +11,7 @@ COPY . .
 
 RUN addgroup --system --gid 1001 app && \
     adduser --system --uid 1001 --gid 1001 app && \
-    mkdir -p /uploads && \
+    mkdir -p /uploads /app/data && \
     chown -R app:app /app /uploads
 
 USER 1001:1001
