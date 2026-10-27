@@ -1,7 +1,7 @@
 .PHONY: help bootstrap up down restart logs test shell deploy clean
 SHELL := /bin/bash
 COMPOSE := docker compose
-PROJECT := LearnForge
+PROJECT := eduvex
 
 help:
 	@echo "Commands: bootstrap, up, down, restart, logs, test, deploy, clean"

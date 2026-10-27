@@ -1,4 +1,4 @@
-# LearnForge — Skill Authoring Reference
+# eduvex — Skill Authoring Reference
 
 This document defines every SKILL.md field this repo uses plus behavior-bound rules: outputs themump; local edits will be overwritten by regeneration.
 
